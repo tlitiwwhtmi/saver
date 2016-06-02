@@ -46,4 +46,13 @@ java file storage , save your object to file
       Parser：    关键类（可以继承并实现抽象类Parser的方法实现自己的parser），有两个方法：
                           parseToString：用来将object转换成可以写进文件里的字符串
                           parse：用来将从文件里读取的字符串转换成对应的Object
-
+###关于Entity
+    PrimayKey注解
+        每个Entity都需要有一个主键，主键请加上注解   @PrimaryKey
+        注解PrimaryKey：加上此注解，在进行插入的时候如果主键没有值，将会自动生成一个主键值。默认生成主键的类为FileUUIDGenerator
+        FileUUIDGenerator：是利用java.util.UUID来生成的主键。
+        自定义主键生成器：继承UUIDGenerator并实现generateUUID方法。
+        自定义主键生成器用法：@Primarykey(idGenerator="com.saver.uuid.fileUuid.FileUUIDGenerator")   完整路径
+        
+    Exclude注解
+        与Hirbernate中的Transient作用类似。被加上此注解的字段不会被存储
