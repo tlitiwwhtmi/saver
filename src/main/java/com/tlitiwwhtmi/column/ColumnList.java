@@ -42,4 +42,13 @@ public class ColumnList {
         }
         return null;
     }
+
+    public Column getColumn(String fieldName){
+        for(Column column : columnList){
+            if(column.getField().getName().equals(fieldName)){
+                return column;
+            }
+        }
+        return null;
+    }
 }

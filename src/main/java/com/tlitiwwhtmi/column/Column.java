@@ -72,6 +72,17 @@ public class Column {
         }
     }
 
+    public Object getUnCastColumnVal(Object object){
+        try{
+            PropertyDescriptor pd = new PropertyDescriptor(field.getName(),object.getClass());
+            Method getMethod = pd.getReadMethod();
+            return getMethod.invoke(object);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public Object setColumnVal(String val,Object object){
         try {
             PropertyDescriptor pd = new PropertyDescriptor(field.getName(),object.getClass());

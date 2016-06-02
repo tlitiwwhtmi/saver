@@ -2,6 +2,7 @@ package com.tlitiwwhtmi.saver.fileSaver;
 
 import com.tlitiwwhtmi.column.ColumnList;
 import com.tlitiwwhtmi.column.PrimaryColumn;
+import com.tlitiwwhtmi.filter.SaverFilter;
 import com.tlitiwwhtmi.saver.BaseSaver;
 import com.tlitiwwhtmi.saver.fileSaver.parser.Parser;
 
@@ -126,8 +127,9 @@ public class BaseFileSaver extends BaseSaver {
     }
 
     @Override
-    public Object query(String key) {
-        return null;
+    public List query(SaverFilter filter) {
+        List list = list();
+        return filter.doFilter(list,columnList);
     }
 
     @Override
