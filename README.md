@@ -50,6 +50,9 @@ java file storage , save your object to file
                           parseToString：用来将object转换成可以写进文件里的字符串
                           parse：用来将从文件里读取的字符串转换成对应的Object
 ###关于Entity
+    数据类型
+        目前只支持String和int两个基本数据类型
+    
     PrimayKey注解
         每个Entity都需要有一个主键，主键请加上注解   @PrimaryKey
         注解PrimaryKey：加上此注解，在进行插入的时候如果主键没有值，将会自动生成一个主键值。默认生成主键的类为FileUUIDGenerator
@@ -59,3 +62,9 @@ java file storage , save your object to file
         
     Exclude注解
         与Hirbernate中的Transient作用类似。被加上此注解的字段不会被存储
+###关于Parser
+    StringParser：将各字段的值用“|”分割，然后存储到文件里
+    
+    JSONParser：将对象转成json字符串存储在文件里
+    
+    自定义Parser：继承Parser类，实现parseToString和parse两个方法
