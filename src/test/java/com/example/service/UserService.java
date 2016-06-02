@@ -32,8 +32,6 @@ public class UserService {
     }
 
     public List testSaverList(){
-        Parser parser = new StringParser();
-        BaseSaver userFileSaver = new BaseFileSaver("user.txt",User.class,parser);
         return userFileSaver.list();
     }
 

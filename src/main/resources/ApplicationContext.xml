@@ -10,11 +10,12 @@
     <context:component-scan base-package="com.example"/>
 
     <bean id="stringParser" class="com.tlitiwwhtmi.saver.fileSaver.parser.StringParser"/>
+    <bean id="jsonParser" class="com.tlitiwwhtmi.saver.fileSaver.parser.JsonParser" />
 
     <bean id="userFileSaver" class="com.tlitiwwhtmi.saver.fileSaver.BaseFileSaver">
         <constructor-arg name="fileName" value="users.txt" />
         <constructor-arg name="clazz" value="com.example.entity.User" />
-        <constructor-arg name="parser" ref="stringParser" />
+        <constructor-arg name="parser" ref="jsonParser" />
     </bean>
 
 

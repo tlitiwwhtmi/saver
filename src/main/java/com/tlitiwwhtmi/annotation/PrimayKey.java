@@ -12,6 +12,6 @@ import java.lang.annotation.*;
 
 public @interface PrimayKey {
 
-    String idGenerator() default "com.saver.uuid.fileUuid.FileUUIDGenerator";
+    String idGenerator() default "com.tlitiwwhtmi.uuid.fileUuid.FileUUIDGenerator";
 
 }

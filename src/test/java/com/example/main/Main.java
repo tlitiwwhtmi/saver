@@ -26,17 +26,17 @@ public class Main {
     }
 
     private void start() {
-        /*System.out.println(userService.testSaverInsert());
+        System.out.println(userService.testSaverInsert());
         List<User> users = (List<User>) userService.testSaverList();
-        System.out.println(userService.testSaverDelete(users.get(0)));
-        User user = userService.testGetById("0e430419ef834c829bae71f87a8b85c1");
-        user.setUserName("liuyonglang");
-        System.out.println(userService.testUpdateUser(user));*/
+       // System.out.println(userService.testSaverDelete(users.get(0)));
+        //User user = userService.testGetById("0e430419ef834c829bae71f87a8b85c1");
+        //user.setUserName("liuyonglang");
+        //System.out.println(userService.testUpdateUser(user));
 
-        SaverFilter filter = new SaverFilter();
-        filter.equal("userName","saver");
-        filter.notEqual("userId","bea6e4a0522a4482ad2c359ab4ef2688");
-        List<User> users = (List<User>) userService.testQuery(filter);
+        //SaverFilter filter = new SaverFilter();
+        //filter.equal("userName","saver");
+        //filter.notEqual("userId","bea6e4a0522a4482ad2c359ab4ef2688");
+        //List<User> users = (List<User>) userService.testQuery(filter);
         for(User user : users){
             System.out.println(user.getUserId());
         }
