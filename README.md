@@ -6,6 +6,9 @@ java file storage , save your object to file
     存储的时候需要把你的对象转换成字符串，查询的时候需要读取字符串然后解析字符串。整个过程还是很繁琐的。
 ##作用
     saver-filesaver的帮你简化了这些操作，你只管定义你的class，存储和读取的工作都交给saver来做就ok了。
+###安装
+    1、target文件夹中有打好的jar包，可以将jar包丢到项目里
+    2、如果使用源码，就直接把包com.tlitiwwhtmi拷到项目里就好了。
 ##初始化
     a.如果你的项目中使用的Spring框架，那么你需要配置一下几个bean
       <bean id="stringParser" class="com.tlitiwwhtmi.saver.fileSaver.parser.StringParser"/>
