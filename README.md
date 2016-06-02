@@ -28,6 +28,13 @@ java file storage , save your object to file
     删除：saver.delete(object);     比如：userFileSaver.delete(user)
     更新：saver.update(object);     比如：userFileSaver.update(user)
     列表：saver.list();             比如：List<User> users = (List<User>) userFileSaver.list()
+    查询：saver.query(filter)       比如：
+                                      SaverFilter filter = new SaverFilter();
+                                      filter.equal("userName","saver");
+                                      filter.notEqual("userId","bea6e4a0522a4482ad2c359ab4ef2688");
+                                      List<User> users = (List<User>) userService.testQuery(filter);
+    
+    SaverFilter目前只提供了equal查询和notEqual查询，后面会补充……
     
     详细用法可以在代码中的test中找到
     
