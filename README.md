@@ -67,4 +67,6 @@ java file storage , save your object to file
     
     JSONParser：将对象转成json字符串存储在文件里
     
+    XmlParser：将对象转成xml字符串存储在文件里
+    
     自定义Parser：继承Parser类，实现parseToString和parse两个方法
