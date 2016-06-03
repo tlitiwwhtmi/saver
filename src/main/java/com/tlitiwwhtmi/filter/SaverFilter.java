@@ -14,16 +14,18 @@ public class SaverFilter {
 
     private Map<String,Object> notEqualMap;
 
-    public void equal(String key,Object value){
+    public SaverFilter equal(String key,Object value){
         Map<String,Object> map = new HashMap<String, Object>();
         map.put(key,value);
         this.equalMap = map;
+        return this;
     }
 
-    public void notEqual(String key,Object value){
+    public SaverFilter notEqual(String key,Object value){
         Map<String,Object> map = new HashMap<String, Object>();
         map.put(key,value);
         this.notEqualMap = map;
+        return this;
     }
 
     public Map<String, Object> getEqualMap() {
