@@ -70,3 +70,5 @@ java file storage , save your object to file
     XmlParser：将对象转成xml字符串存储在文件里
     
     自定义Parser：继承Parser类，实现parseToString和parse两个方法
+###关于Filter
+    可以继承BaseFilter，并实现doFilter方法来自定义你想要的Filter
