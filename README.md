@@ -6,7 +6,7 @@ java file storage , save your object to file
     存储的时候需要把你的对象转换成字符串，查询的时候需要读取字符串然后解析字符串。整个过程还是很繁琐的。
 ##作用
     saver-filesaver的帮你简化了这些操作，你只管定义你的class，存储和读取的工作都交给saver来做就ok了。
-###安装
+##安装
     1、target文件夹中有打好的jar包，可以将jar包丢到项目里
     2、如果使用源码，就直接把包com.tlitiwwhtmi拷到项目里就好了。
 ##初始化
@@ -27,6 +27,14 @@ java file storage , save your object to file
       Parser parser = new StringParser();
       BaseSaver userFileSaver = new BaseFileSaver("/data/mvp/","user.txt",User.class,parser);
     然后直接使用userFileSaver即可
+##说明
+    BaseFileSaver(继承自BaseSaver)初始化参数说明：
+      filePath ： 存储文件的路径
+      fileName ： 存储的文件名
+      Class<?> ： 对应的Entity的calss
+      Parser：    关键类（可以继承并实现抽象类Parser的方法实现自己的parser），有两个方法：
+                          parseToString：用来将object转换成可以写进文件里的字符串
+                          parse：用来将从文件里读取的字符串转换成对应的Object
 ##使用
     插入：saver.insert(object);     比如：userFileSaver.insert(user)
     删除：saver.delete(object);     比如：userFileSaver.delete(user)
@@ -42,14 +50,7 @@ java file storage , save your object to file
     详细用法可以在代码中的test中找到
     
     只提供了基本的方法，需要稍复杂的方法可以继承BaseFileSaver类，然后实现自己的方法。
-##说明
-    BaseFileSaver(继承自BaseSaver)初始化参数说明：
-      fileName ： 存储的文件名
-      Class<?> ： 对应的Entity的calss
-      Parser：    关键类（可以继承并实现抽象类Parser的方法实现自己的parser），有两个方法：
-                          parseToString：用来将object转换成可以写进文件里的字符串
-                          parse：用来将从文件里读取的字符串转换成对应的Object
-###关于Entity
+##关于Entity
     数据类型
         目前只支持String和int两个基本数据类型
     
@@ -62,7 +63,7 @@ java file storage , save your object to file
         
     Exclude注解
         与Hirbernate中的Transient作用类似。被加上此注解的字段不会被存储
-###关于Parser
+##关于Parser
     StringParser：将各字段的值用“|”分割，然后存储到文件里
     
     JSONParser：将对象转成json字符串存储在文件里
@@ -70,5 +71,5 @@ java file storage , save your object to file
     XmlParser：将对象转成xml字符串存储在文件里
     
     自定义Parser：继承Parser类，实现parseToString和parse两个方法
-###关于Filter
+##关于Filter
     可以继承BaseFilter，并实现doFilter方法来自定义你想要的Filter
