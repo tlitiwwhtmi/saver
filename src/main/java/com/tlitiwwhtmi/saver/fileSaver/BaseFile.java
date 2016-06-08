@@ -23,13 +23,25 @@ public class BaseFile{
 
     private String linuxFilePath = "/data/mvp/";
 
-    public BaseFile(String fileName,Parser parser) {
+    private final String filePath;
+
+    public BaseFile(String filePath,String fileName,Parser parser) {
+        this.filePath = filePath;
         this.fileName = fileName;
         this.parser = parser;
         this.createFile();
     }
 
     private String generatePath(){
+
+        if(null != this.filePath && !"".equals(this.filePath)){
+            File saveDir = new File(this.filePath);
+            if(!saveDir.exists()){
+                saveDir.mkdirs();
+            }
+            return filePath + fileName;
+        }
+
         String osname = System.getProperty("os.name").toLowerCase();
         if(osname.startsWith("win")){
             return winFilePath+fileName;

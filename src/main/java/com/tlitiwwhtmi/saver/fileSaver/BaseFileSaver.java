@@ -21,8 +21,8 @@ public class BaseFileSaver extends BaseSaver {
 
     private final ColumnList columnList;
 
-    public BaseFileSaver(String fileName,Class<?> clazz,Parser parser){
-        this.baseFile = new BaseFile(fileName,parser);
+    public BaseFileSaver(String filePath,String fileName,Class<?> clazz,Parser parser){
+        this.baseFile = new BaseFile(filePath,fileName,parser);
         this.clazz = clazz;
         this.columnList = new ColumnList(clazz);
     }

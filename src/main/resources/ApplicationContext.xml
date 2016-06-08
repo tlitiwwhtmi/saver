@@ -14,6 +14,7 @@
     <bean id="xmlParser" class="com.tlitiwwhtmi.saver.fileSaver.parser.XmlParser" />
 
     <bean id="userFileSaver" class="com.tlitiwwhtmi.saver.fileSaver.BaseFileSaver">
+        <constructor-arg name="filePath" value="/data/mvp/" />
         <constructor-arg name="fileName" value="users.txt" />
         <constructor-arg name="clazz" value="com.example.entity.User" />
         <constructor-arg name="parser" ref="xmlParser" />
