@@ -14,6 +14,7 @@ java file storage , save your object to file
       <bean id="stringParser" class="com.tlitiwwhtmi.saver.fileSaver.parser.StringParser"/>
   
       <bean id="userFileSaver" class="com.tlitiwwhtmi.saver.fileSaver.BaseFileSaver">
+          <constructor-arg name="filePath" value="/data/mvp/" />
           <constructor-arg name="fileName" value="users.txt" />
           <constructor-arg name="clazz" value="com.example.entity.User" />
           <constructor-arg name="parser" ref="stringParser" />
@@ -24,7 +25,7 @@ java file storage , save your object to file
     
     b.如果没有引用Spring框架也不要紧，直接New出对象即可（saver并不依赖Spring框架）
       Parser parser = new StringParser();
-      BaseSaver userFileSaver = new BaseFileSaver("user.txt",User.class,parser);
+      BaseSaver userFileSaver = new BaseFileSaver("/data/mvp/","user.txt",User.class,parser);
     然后直接使用userFileSaver即可
 ##使用
     插入：saver.insert(object);     比如：userFileSaver.insert(user)
