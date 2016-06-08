@@ -2,13 +2,14 @@ package com.tlitiwwhtmi.filter;
 
 import com.tlitiwwhtmi.column.Column;
 import com.tlitiwwhtmi.column.ColumnList;
+import com.tlitiwwhtmi.saver.fileSaver.BaseFile;
 
 import java.util.*;
 
 /**
  * Created by administrator on 16/6/2.
  */
-public class SaverFilter {
+public class SaverFilter extends BaseFilter{
 
     private Map<String,Object> equalMap;
 
@@ -36,6 +37,7 @@ public class SaverFilter {
         this.equalMap = equalMap;
     }
 
+    @Override
     public List doFilter(List list, ColumnList columnList){
         List afterEqual = doEqualFilter(list,columnList);
         List afterNotEqual = doNotEqualFilter(afterEqual,columnList);

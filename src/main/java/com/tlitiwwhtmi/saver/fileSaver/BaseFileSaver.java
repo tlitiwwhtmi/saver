@@ -2,7 +2,7 @@ package com.tlitiwwhtmi.saver.fileSaver;
 
 import com.tlitiwwhtmi.column.ColumnList;
 import com.tlitiwwhtmi.column.PrimaryColumn;
-import com.tlitiwwhtmi.filter.SaverFilter;
+import com.tlitiwwhtmi.filter.BaseFilter;
 import com.tlitiwwhtmi.saver.BaseSaver;
 import com.tlitiwwhtmi.saver.fileSaver.parser.Parser;
 
@@ -21,6 +21,12 @@ public class BaseFileSaver extends BaseSaver {
 
     private final ColumnList columnList;
 
+    /**
+     * @param filePath the path to save the data file
+     * @param fileName the name of the data file
+     * @param clazz the entity class
+     * @param parser parser
+     */
     public BaseFileSaver(String filePath,String fileName,Class<?> clazz,Parser parser){
         this.baseFile = new BaseFile(filePath,fileName,parser);
         this.clazz = clazz;
@@ -127,7 +133,7 @@ public class BaseFileSaver extends BaseSaver {
     }
 
     @Override
-    public List query(SaverFilter filter) {
+    public List query(BaseFilter filter) {
         List list = list();
         return filter.doFilter(list,columnList);
     }

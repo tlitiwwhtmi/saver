@@ -1,6 +1,7 @@
 package com.example.service;
 
 import com.example.entity.User;
+import com.tlitiwwhtmi.filter.BaseFilter;
 import com.tlitiwwhtmi.filter.SaverFilter;
 import com.tlitiwwhtmi.saver.BaseSaver;
 import com.tlitiwwhtmi.saver.fileSaver.BaseFileSaver;
@@ -47,7 +48,7 @@ public class UserService {
         return userFileSaver.update(user);
     }
 
-    public List testQuery(SaverFilter filter){
+    public List testQuery(BaseFilter filter){
         return userFileSaver.query(filter);
     }
 

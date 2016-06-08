@@ -1,6 +1,6 @@
 package com.tlitiwwhtmi.saver;
 
-import com.tlitiwwhtmi.filter.SaverFilter;
+import com.tlitiwwhtmi.filter.BaseFilter;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ public abstract class BaseSaver {
 
     public abstract Object getById(String key);
 
-    public abstract List query(SaverFilter filter);
+    public abstract List query(BaseFilter filter);
 
     public abstract List list();
 }
